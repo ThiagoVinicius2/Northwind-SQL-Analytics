@@ -3,7 +3,7 @@ version: '3'
 services:
   db:
     container_name: db
-    image: postgres:latest
+    image: postgres:16
     environment:
       POSTGRES_DB: northwind
       POSTGRES_USER: postgres
@@ -26,6 +26,8 @@ services:
       PGADMIN_DEFAULT_PASSWORD: postgres
       PGADMIN_LISTEN_PORT: 5050
       PGADMIN_CONFIG_SERVER_MODE: 'False'
+      PGADMIN_CONFIG_WTF_CSRF_ENABLED: 'False'
+      PGADMIN_CONFIG_ENHANCED_COOKIE_PROTECTION: 'False'
     volumes:
       - postgresql_bin:/usr/lib/postgresql
       - pgadmin_root_prefs:/root/.pgadmin
